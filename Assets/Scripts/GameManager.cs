@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public GameObject Cooking;
     public bool IsCooking;
     public Camera m_MainCamera, m_CameraTwo;
-
     public static GameManager instance;
 
     private void Awake()
@@ -50,12 +49,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        IsCooking = true;
         IsChef = true;
         IsWaiter = false;
         timer = Random.Range(minimumSpawnTime, maximumSpawntime);
         m_MainCamera = Camera.main;
     }
 
+    //Code for zooming in and out using scroll wheel
     private void OnGUI()
     {
             cam.m_Lens.FieldOfView -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
@@ -86,11 +87,12 @@ public class GameManager : MonoBehaviour
 
     public void ToggleBetween2D3D()
     {
-       // if (!Input.GetMouseButton(0))
+        // if (!Input.GetMouseButton(0))
         {
 
             if (m_MainCamera.enabled)
             {
+                IsCooking = false;
                 //Enable the second Camera
                 m_CameraTwo.enabled = true;
 
@@ -100,6 +102,7 @@ public class GameManager : MonoBehaviour
             //Otherwise, if the Main Camera is not enabled, switch back to the Main Camera on a key press
             else if (!m_MainCamera.enabled)
             {
+                IsCooking = true;
                 //Disable the second camera
                 m_CameraTwo.enabled = false;
 

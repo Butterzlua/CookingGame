@@ -10,6 +10,7 @@ public class TakeIngedidnet : MonoBehaviour
     public bool canDrag = false;
     public string IngredientName;
     public Sprite cutSprite;
+    public bool Cutting = false;
     // Start is called before the first frame update
    
     private void Start()
@@ -29,19 +30,23 @@ public class TakeIngedidnet : MonoBehaviour
     
     void OnMouseDown()
     {
-        transform.parent = newParent.transform;
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        if (!Cutting)
+        {
+            transform.parent = newParent.transform;
+            offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
+        }
     }
 
     void OnMouseDrag()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-        Vector3 curRotation = new Vector3(0, 0, 0);
-        transform.position = curPosition;
-        transform.rotation = Quaternion.Euler(curRotation);
-
-        //transform.Rotate(new Vector3(0, 0, -90));
+        if (!Cutting)
+        {
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+            Vector3 curRotation = new Vector3(0, 0, 0);
+            transform.position = curPosition;
+            transform.rotation = Quaternion.Euler(curRotation);
+        }
     }
 }
 

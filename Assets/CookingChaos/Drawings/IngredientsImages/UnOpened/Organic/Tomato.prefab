@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2722677341492403949}
   - component: {fileID: 2722677341492403950}
   - component: {fileID: 2299376563863278227}
-  - component: {fileID: 5874299054727530729}
+  - component: {fileID: -5647046566934234116}
+  - component: {fileID: 8886355908875924163}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Cuttable
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2722677341492403948}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.085856, y: 4.5946016, z: 218.61}
-  m_LocalScale: {x: 0.067968935, y: 2.2229633, z: 1}
+  m_LocalScale: {x: 1.0128615, y: 1.2373458, z: 0.55662}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,8 +100,30 @@ MonoBehaviour:
   canDrag: 0
   IngredientName: Tomato
   cutSprite: {fileID: 21300000, guid: 2b1899905ae16a4499a7f876a23fed1f, type: 3}
---- !u!61 &5874299054727530729
-BoxCollider2D:
+  Cutting: 0
+--- !u!50 &-5647046566934234116
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722677341492403948}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!70 &8886355908875924163
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,16 +135,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5, y: 4.5}
-    newSize: {x: 4.5, y: 4.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.75, y: 3.75}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.017763553, y: -0.05904654}
+  m_Size: {x: 2.8304067, y: 2.3169026}
+  m_Direction: 0

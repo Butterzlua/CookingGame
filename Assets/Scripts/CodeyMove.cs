@@ -26,6 +26,10 @@ public class CodeyMove : MonoBehaviour
     }
     void Update()
     {
+        if(Agent.speed <= 17)
+        {
+            Agent.speed = 18;
+        }
         if (canMove)
         {
             if (Input.GetMouseButtonDown(0))

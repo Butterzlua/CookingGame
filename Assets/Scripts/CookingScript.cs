@@ -3,50 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CookingScript : MonoBehaviour
-{
-    private string currentRecipe;
-    private Dictionary<string, Sprite> cookbook = new Dictionary<string, Sprite>();
-    private Dictionary<string, float> cookTimes = new Dictionary<string, float>();
-    public string[] recipes;
-    public Sprite[] cookedFood;
-    public float[] cookingTimes;
+{  
     public SpriteRenderer foodImage;
     [SerializeField] private GameObject newParent;
-    [SerializeField] private ParticleSystem Smoke;
+    [SerializeField] private GameObject Smoke, Deepfry, Steam;
+    [SerializeField] private Sprite Default, Oil, Boil;
     public GameObject spritePosition;
-
-    private void Start()
-    {
-        InitializeCookbook();
-    }
-
-    private void InitializeCookbook()
-    {
-        //if (recipes.Length > 0 && cookedFood.Length > 1 && recipes.Length == cookedFood.Length)
-        {
-            for (int i = 0; i <= recipes.Length - 1; i++)
-            {
-                cookbook.Add(recipes[i], cookedFood[i]);
-            }
-            for (int i = 0; i <= recipes.Length - 1; i++)
-            {
-                cookTimes.Add(recipes[i], cookingTimes[i]);
-            }
-        }
-    }
+    [SerializeField] private AudioSource cookingSound;
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bowl"))
         {
-            currentRecipe = collision.gameObject.GetComponent<BowlFunction>().currentRecipe;
-            print(currentRecipe);
-            CheckRecipe(currentRecipe);
+            print(FoodManager.FM_instance.currentRecipe);
+            CheckRecipe(FoodManager.FM_instance.currentRecipe);
         }
     }
 
     private void CheckRecipe(string recipe)
     {
-        foreach(string r in recipes)
+        foreach(string r in FoodManager.FM_instance.recipes)
         {
             if (r == recipe)
             {
@@ -56,27 +32,44 @@ public class CookingScript : MonoBehaviour
                     return;
                 }
 
-                float time = cookTimes[r];
-                //play cooking animation
+                float time = FoodManager.FM_instance.cookTimes[r];
                 StartCoroutine(PlayCookingAnimation(r, recipe, time));
-                //then show cooked sprite
             }    
         }
     }
 
     private IEnumerator PlayCookingAnimation(string r, string recipe, float time)
     {
-        GetComponent<ParticleSystem>().Play();
-        yield return new WaitForSeconds(time);
-
-        GetComponent<ParticleSystem>().Stop();
+        GameObject effect = null;
+        SpriteRenderer starry = GetComponent<SpriteRenderer>();
+        if (FoodManager.FM_instance.CookingType == "Stovetop")
+        {
+             effect = Instantiate(Smoke, transform.position, Quaternion.identity);
+            starry.sprite = Default;
+        }
+        else if (FoodManager.FM_instance.CookingType == "Deepfry")
+        {
+            effect = Instantiate(Deepfry, transform.position, Quaternion.identity);
+            starry.sprite = Oil;
+        }
+        else if (FoodManager.FM_instance.CookingType == "Boil")
+        {
+            effect = Instantiate(Steam, transform.position, Quaternion.identity);
+            starry.sprite = Boil;
+        }
+        cookingSound.Play();
+        yield return new WaitForSeconds(time / FoodManager.FM_instance.CookMultiplier);
+        starry.sprite = Default;
+        cookingSound.Stop();
+        Destroy(effect);
         CookFood(r, recipe);
     }
 
     private void CookFood(string r, string recipe)
     {
         GameObject go = Instantiate(foodImage.gameObject, spritePosition.transform.position, transform.rotation, transform);
-        if (r == "GroundBeef" || r == "CookedHotdog")
+        foodImage.gameObject.name = FoodManager.FM_instance.currentRecipe;
+        if (r == "GroundBeef" || r == "CookedHotdog" || r == "Tomato Sauce" || r == "Pasta" || r == "SousVide" || r == "Rice")
         {
             foodImage.gameObject.tag = "CookedIngredient";
             if (go)
@@ -87,6 +80,7 @@ public class CookingScript : MonoBehaviour
         else
         {
             foodImage.gameObject.tag = "FinishedFood";
+            foodImage.gameObject.AddComponent<FinishedFood>();
         }
 
         if (foodImage.gameObject.CompareTag("CookedIngredient"))
@@ -94,13 +88,15 @@ public class CookingScript : MonoBehaviour
             foodImage.gameObject.AddComponent<TakeIngedidnet>();
             foodImage.GetComponent<TakeIngedidnet>().IngredientName = "Cooked" + r;
         }
-        foodImage.sprite = cookbook[r];
-        foodImage.gameObject.name = currentRecipe;
+        if (foodImage.gameObject.name == "Nothing")
+        {
+            foodImage.gameObject.name = FoodManager.FM_instance.foodGameobjects[r].name;
+        }
+        foodImage.sprite = FoodManager.FM_instance.cookbook[r];
         print(foodImage.gameObject.name);
         foodImage.gameObject.transform.parent = newParent.transform;
         //if(go)
         foodImage = go.GetComponent<SpriteRenderer>();
         spritePosition = foodImage.gameObject;
-        recipe = "Nothing";
     }
 }

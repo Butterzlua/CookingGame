@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2722677341492403949}
   - component: {fileID: 2722677341492403950}
   - component: {fileID: 2299376563863278227}
-  - component: {fileID: 5874299054727530729}
+  - component: {fileID: 7458405261293536805}
   m_Layer: 0
   m_Name: Potato
-  m_TagString: Untagged
+  m_TagString: Cuttable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2722677341492403948}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.085856, y: 4.5946016, z: 218.61}
-  m_LocalScale: {x: 0.067968935, y: 2.2229633, z: 1}
+  m_LocalScale: {x: 0.6953819, y: 0.8686452, z: 0.39076}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,9 +98,10 @@ MonoBehaviour:
   newParent: {fileID: 0}
   canDrag: 0
   IngredientName: Potato
-  cutSprite: {fileID: 0}
---- !u!61 &5874299054727530729
-BoxCollider2D:
+  cutSprite: {fileID: 21300000, guid: 76df129eb1f128d40ace204e7c598afd, type: 3}
+  Cutting: 0
+--- !u!70 &7458405261293536805
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,16 +113,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5, y: 4.5}
-    newSize: {x: 4.5, y: 4.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.75, y: 3.75}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.02191012, y: 0.008772118}
+  m_Size: {x: 2.0454857, y: 3.4296017}
+  m_Direction: 0

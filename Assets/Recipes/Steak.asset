@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c2a1261e7d9b349b541d75e8cc9734, type: 3}
+  m_Name: Steak
+  m_EditorClassIdentifier: 
+  pageNumber: 8
+  recipeName: Steak
+  ingredientNames:
+  - SousVide
+  - Butter
+  - Ketchup
+  ingredientSprites:
+  - {fileID: 21300000, guid: cfa13c910011c6c46bd46c108fa76d6b, type: 3}
+  - {fileID: 21300000, guid: cad19efe76931a644a3736bfc13dd37a, type: 3}
+  - {fileID: 21300000, guid: ba41181c720fa2842b041a321525b4e0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  recipeSprite2D: {fileID: 21300000, guid: b997e2a2e8fa1cc4191acf9e2e6b7cb9, type: 3}
+  recipe3D: {fileID: 101760618490762384, guid: bd3d73094ab250f4bb164345dac1a9e9, type: 3}
+  cost: 14.85
+  cookingTime: 7.34
+  SaltAndPepper: {x: 2, y: 2}

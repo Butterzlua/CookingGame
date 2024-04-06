@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c2a1261e7d9b349b541d75e8cc9734, type: 3}
+  m_Name: Rice
+  m_EditorClassIdentifier: 
+  pageNumber: 10
+  recipeName: Rice
+  ingredientNames:
+  - RiceBag
+  - Water
+  - Water
+  ingredientSprites:
+  - {fileID: 21300000, guid: a8bea8be34a4c9840b6649728333ef17, type: 3}
+  - {fileID: 21300000, guid: 58003d3ab961fae4eb29a3f89af6cef4, type: 3}
+  - {fileID: 21300000, guid: 58003d3ab961fae4eb29a3f89af6cef4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  recipeSprite2D: {fileID: 21300000, guid: b1e1fddf1b7e8a246a2a94048078231c, type: 3}
+  recipe3D: {fileID: 4246379387971053408, guid: 17e0de7d2cf35a748bc1f80b9b6c986d,
+    type: 3}
+  cost: 6.35
+  cookingTime: 0
+  SaltAndPepper: {x: 1, y: 1}

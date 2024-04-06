@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c2a1261e7d9b349b541d75e8cc9734, type: 3}
+  m_Name: TomatoPasta
+  m_EditorClassIdentifier: 
+  pageNumber: 4
+  recipeName: TomatoPasta
+  ingredientNames:
+  - PastaBowl
+  - TomatoSauce
+  ingredientSprites:
+  - {fileID: 21300000, guid: 09bdb3f6cddea454d8b68a8d121926a0, type: 3}
+  - {fileID: 21300000, guid: 1053e5da8c06c1845b6e006d69deadcb, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  recipeSprite2D: {fileID: 21300000, guid: cc96ae9162874b84ca232d9ff306b138, type: 3}
+  recipe3D: {fileID: 2046432511264489595, guid: 514638dfa4483074887461d23a413c71,
+    type: 3}
+  cost: 7.24
+  cookingTime: 3.47
+  SaltAndPepper: {x: 4, y: 5}

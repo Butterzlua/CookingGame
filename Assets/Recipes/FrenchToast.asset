@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c2a1261e7d9b349b541d75e8cc9734, type: 3}
+  m_Name: FrenchToast
+  m_EditorClassIdentifier: 
+  pageNumber: 1
+  recipeName: FrenchToast
+  ingredientNames:
+  - Bread
+  - Egg
+  - Milk
+  - Cinnamon
+  - Vanilla
+  ingredientSprites:
+  - {fileID: 21300000, guid: a3edab847b8e01745b156162c37e40b7, type: 3}
+  - {fileID: 21300000, guid: 45bb1f955c1c97d489b44df223d561d1, type: 3}
+  - {fileID: 21300000, guid: b0790c772b136bb44a454657cd10f81e, type: 3}
+  - {fileID: 21300000, guid: 89e83bdf0ac752e4fa45af7b39a9725b, type: 3}
+  - {fileID: 21300000, guid: ab9c25834c3855d4b8b6b905cf27b494, type: 3}
+  recipeSprite2D: {fileID: 21300000, guid: 390d1ce27eb5a6e4bbeb1313fd212849, type: 3}
+  recipe3D: {fileID: 7036745084479044006, guid: 0feb15e65449b404cafe07abcc388d9d,
+    type: 3}
+  cost: 3.65
+  cookingTime: 2
+  SaltAndPepper: {x: 0, y: 0}
