@@ -15,10 +15,10 @@ public class ConveyorMove : MonoBehaviour
     void Update()
     {
         transform.position += (Vector3.right * Time.deltaTime * SpeedConveyor);
-        if(transform.localPosition.x > 120f)
+        if(transform.localPosition.x > 94)
         {
             Vector3 temp = transform.localPosition;
-            temp.x = -14;
+            temp.x = -94;
             transform.localPosition = temp;
         }
     }
