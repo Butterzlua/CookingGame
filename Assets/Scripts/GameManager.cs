@@ -88,28 +88,33 @@ public class GameManager : MonoBehaviour
     public void ToggleBetween2D3D()
     {
         // if (!Input.GetMouseButton(0))
-        {
+        
 
-            if (m_MainCamera.enabled)
-            {
-                IsCooking = false;
-                //Enable the second Camera
-                m_CameraTwo.enabled = true;
-
-                //The Main first Camera is disabled
-                m_MainCamera.enabled = false;
-            }
-            //Otherwise, if the Main Camera is not enabled, switch back to the Main Camera on a key press
-            else if (!m_MainCamera.enabled)
+            if (m_MainCamera.gameObject.activeSelf)
             {
                 IsCooking = true;
+                //Enable the second Camera
+                //m_CameraTwo.enabled = true;
+                m_CameraTwo.gameObject.SetActive(true);
+
+                //The Main first Camera is disabled
+                //m_MainCamera.enabled = false;
+                m_MainCamera.gameObject.SetActive(false);
+
+            }
+            //Otherwise, if the Main Camera is not enabled, switch back to the Main Camera on a key press
+            else if (!m_MainCamera.gameObject.activeSelf)
+            {
+                IsCooking = false;
                 //Disable the second camera
-                m_CameraTwo.enabled = false;
+                //m_CameraTwo.enabled = false;
+                m_CameraTwo.gameObject.SetActive(false);
 
                 //Enable the Main Camera
-                m_MainCamera.enabled = true;
+                //m_MainCamera.enabled = true;
+                m_MainCamera.gameObject.SetActive(true);
             }
-        }
+        
     }
 
     private void CreateCustomer()

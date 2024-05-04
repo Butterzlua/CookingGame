@@ -26,7 +26,9 @@ public class ThoughtBubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Camera.main.transform);
+        Camera cam = GameManager.instance.m_MainCamera;
+        if (!cam.gameObject.activeSelf) return;
+        transform.LookAt(cam.transform);
     }
 
     public void SetFoodImage(Sprite food)

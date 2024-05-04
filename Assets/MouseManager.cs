@@ -9,7 +9,9 @@ public class MouseManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Camera cam = GameManager.instance.m_CameraTwo;
+            if (!cam.gameObject.activeSelf) return;
+            Vector2 ray = cam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray, Vector2.zero);
 
             foreach(RaycastHit2D hit in hits)

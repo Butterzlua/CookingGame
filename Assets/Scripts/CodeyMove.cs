@@ -35,8 +35,9 @@ public class CodeyMove : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                Camera cam = GameManager.instance.m_MainCamera;
+                if (!cam.gameObject.activeSelf) return;
+                if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
                     Agent.destination = hit.point;
                 }
