@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Customer Spawning")]
     private float timer;
+    public bool Paused = false;
     [SerializeField] private walkBy customer;
     [SerializeField] private Transform spawnPoint, endPoint;
     [SerializeField] private float minimumSpawnTime = 10f, maximumSpawntime = 25f;

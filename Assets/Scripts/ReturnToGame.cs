@@ -14,9 +14,18 @@ public class ReturnToGame : MonoBehaviour
         text = this.GetComponent<TMP_Text>();
     }
 
-
-    public void Return()
+    void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && otherStuff.activeInHierarchy == true)
+        {
+            Return();
+        }
+    }
+
+
+        public void Return()
+    {
+        GameManager.instance.Paused = false;
         Time.timeScale = 1;
         Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         otherStuff.SetActive(false);

@@ -25,7 +25,7 @@ public class IngredientsCall : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0) && canOrder)
+        if(Input.GetMouseButtonDown(0) && canOrder && !GameManager.instance.Paused)
         {
             SpawnIngredients();
         }

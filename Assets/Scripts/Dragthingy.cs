@@ -26,7 +26,7 @@ public class Dragthingy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (isDragging)
+        if (isDragging && !GameManager.instance.Paused)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
@@ -65,11 +65,14 @@ public class Dragthingy : MonoBehaviour
 
     protected virtual void ContinueDrag()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-        Vector3 curRotation = new Vector3(0, 0, 0);
-        transform.position = curPosition;
-        transform.rotation = Quaternion.Euler(curRotation);
+        if (!GameManager.instance.Paused)
+        {
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+            Vector3 curRotation = new Vector3(0, 0, 0);
+            transform.position = curPosition;
+            transform.rotation = Quaternion.Euler(curRotation);
+        }
     }
 
     protected virtual void ResetPos()

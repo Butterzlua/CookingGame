@@ -30,7 +30,7 @@ public class TakeIngedidnet : MonoBehaviour
     
     void OnMouseDown()
     {
-        if (!Cutting)
+        if (!Cutting && !GameManager.instance.Paused)
         {
             transform.parent = newParent.transform;
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
@@ -39,7 +39,7 @@ public class TakeIngedidnet : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (!Cutting)
+        if (!Cutting && !GameManager.instance.Paused)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
