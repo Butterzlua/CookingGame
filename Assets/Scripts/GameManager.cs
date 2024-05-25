@@ -50,11 +50,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        IsCooking = true;
         IsChef = true;
         IsWaiter = false;
         timer = Random.Range(minimumSpawnTime, maximumSpawntime);
-        m_MainCamera = Camera.main;
+        ToggleBetween2D3D();
+        ToggleBetween2D3D();
+        IsCooking = true;
     }
 
     //Code for zooming in and out using scroll wheel

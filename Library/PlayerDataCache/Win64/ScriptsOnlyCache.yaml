@@ -60,8 +60,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -100,17 +102,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 102
       Script: {instanceID: 0}
@@ -167,6 +161,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
@@ -176,7 +172,11 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 11380}
+    - Class: 114
       Script: {instanceID: 11762}
+    - Class: 114
+      Script: {instanceID: 12456}
     - Class: 114
       Script: {instanceID: 12516}
     - Class: 114
@@ -200,9 +200,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14136}
     - Class: 114
+      Script: {instanceID: 14248}
+    - Class: 114
+      Script: {instanceID: 14418}
+    - Class: 114
       Script: {instanceID: 14530}
     - Class: 114
       Script: {instanceID: 14702}
+    - Class: 114
+      Script: {instanceID: 14890}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -216,6 +222,8 @@ ScriptsOnlyBuild:
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
@@ -404,7 +412,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
-    Assets/Scenes/Tutorial3.unity:
+    Assets/Scenes/Tutorial49.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -482,9 +490,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12582}
     - Class: 114
+      Script: {instanceID: 12626}
+    - Class: 114
       Script: {instanceID: 12744}
     - Class: 114
       Script: {instanceID: 12768}
+    - Class: 114
+      Script: {instanceID: 12878}
     - Class: 114
       Script: {instanceID: 12948}
     - Class: 114
@@ -494,11 +506,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13122}
     - Class: 114
+      Script: {instanceID: 13244}
+    - Class: 114
+      Script: {instanceID: 13314}
+    - Class: 114
       Script: {instanceID: 13328}
     - Class: 114
       Script: {instanceID: 13348}
     - Class: 114
       Script: {instanceID: 13406}
+    - Class: 114
+      Script: {instanceID: 13418}
     - Class: 114
       Script: {instanceID: 13430}
     - Class: 114
@@ -508,6 +526,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13666}
     - Class: 114
+      Script: {instanceID: 13762}
+    - Class: 114
       Script: {instanceID: 13874}
     - Class: 114
       Script: {instanceID: 13920}
@@ -516,11 +536,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14112}
     - Class: 114
+      Script: {instanceID: 14136}
+    - Class: 114
       Script: {instanceID: 14234}
     - Class: 114
       Script: {instanceID: 14248}
     - Class: 114
       Script: {instanceID: 14320}
+    - Class: 114
+      Script: {instanceID: 14418}
     - Class: 114
       Script: {instanceID: 14628}
     - Class: 114
@@ -996,7 +1020,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: 659d6ceab26f9e4237abaaf29249f293
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WASDMove
@@ -1599,5 +1623,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/MainScene 1.unity
-  - Assets/Scenes/Tutorial3.unity
+  - Assets/Scenes/Tutorial49.unity
   playerPath: C:/Users/Ninja/Desktop/CookingChaosBuild/Cooking Chaos.exe
