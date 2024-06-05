@@ -23,7 +23,7 @@ MonoBehaviour:
   ingredientSprites:
   - {fileID: 21300000, guid: a3edab847b8e01745b156162c37e40b7, type: 3}
   - {fileID: 21300000, guid: 45bb1f955c1c97d489b44df223d561d1, type: 3}
-  - {fileID: 21300000, guid: b0790c772b136bb44a454657cd10f81e, type: 3}
+  - {fileID: 21300000, guid: ae5f68872abf7a64b8bc550c95538a5c, type: 3}
   - {fileID: 21300000, guid: 89e83bdf0ac752e4fa45af7b39a9725b, type: 3}
   - {fileID: 21300000, guid: ab9c25834c3855d4b8b6b905cf27b494, type: 3}
   recipeSprite2D: {fileID: 21300000, guid: 390d1ce27eb5a6e4bbeb1313fd212849, type: 3}

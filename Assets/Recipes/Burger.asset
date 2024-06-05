@@ -21,11 +21,11 @@ MonoBehaviour:
   - LettuceCut
   - BeefPatty
   ingredientSprites:
-  - {fileID: 21300000, guid: facaecfa962a60442890c47d7b3075ca, type: 3}
+  - {fileID: 21300000, guid: d49603ca3962eb04cbf82631b2dd6a6b, type: 3}
   - {fileID: 21300000, guid: c83d7872cfe108a4bac5bbe87661cf24, type: 3}
   - {fileID: 21300000, guid: 2b1899905ae16a4499a7f876a23fed1f, type: 3}
   - {fileID: 21300000, guid: 37264a02c6098d6479ea7ca0f33ff7af, type: 3}
-  - {fileID: 21300000, guid: 42069f22183179b449258639c7c6080c, type: 3}
+  - {fileID: 21300000, guid: 95a5af8e3d84efe4185a6b4b18ebfa94, type: 3}
   recipeSprite2D: {fileID: 21300000, guid: ba11e1f957031fc4fabe0b6edf337399, type: 3}
   recipe3D: {fileID: 4246379387971053408, guid: 61a16ac20d0c9dd45ae0761749795426,
     type: 3}

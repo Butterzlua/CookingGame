@@ -13,7 +13,7 @@ public class CookingScript : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bowl"))
+        if (collision.gameObject.name == "Bowl")
         {
             print(FoodManager.FM_instance.currentRecipe);
             CheckRecipe(FoodManager.FM_instance.currentRecipe);
@@ -95,6 +95,7 @@ public class CookingScript : MonoBehaviour
         foodImage.sprite = FoodManager.FM_instance.cookbook[r];
         print(foodImage.gameObject.name);
         foodImage.gameObject.transform.parent = newParent.transform;
+        foodImage.GetComponent<SpriteRenderer>().sortingOrder = 16;
         //if(go)
         foodImage = go.GetComponent<SpriteRenderer>();
         spritePosition = foodImage.gameObject;

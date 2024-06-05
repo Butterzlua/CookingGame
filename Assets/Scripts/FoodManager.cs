@@ -77,7 +77,15 @@ public class FoodManager : MonoBehaviour
             cookingBook.SetActive(!cookingBook.activeInHierarchy);
             if (page == 0)
             {
-                openCookBook.UpdatePage(recipeSO[page]);
+                if(!openCookBook)
+                {
+                    print("no cookbook");
+                }
+                if(!recipeSO[page])
+                {
+                    print("no page");
+                }
+                openCookBook.UpdatePage(recipeSO[page]);   
             }
             else
             {

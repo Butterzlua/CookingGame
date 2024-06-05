@@ -1,9 +1,10 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IngredientsCall : MonoBehaviour
 {
-    public GameObject[] organicPrefabs;
+    public List<GameObject> organicPrefabs;
     public Transform pantry, converyorBelt;
     [SerializeField] private float cooldown = 5f;
     private bool canOrder = true;
@@ -37,14 +38,22 @@ public class IngredientsCall : MonoBehaviour
         converyorBelt = FoodManager.FM_instance.conveyorInAction.transform;
         sound.volume = 0.65f;
         sound.PlayOneShot(Click);
-        for (int i = 0; i < organicPrefabs.Length; i++)
+        //for (int i = 0; i < organicPrefabs.Count; i++)
+        //{
+        //    GameObject tempFood = Instantiate(organicPrefabs[i], pantry.position + new Vector3(i * delay,0,0),Quaternion.identity,  converyorBelt);
+        //    tempFood.GetComponent<SpriteRenderer>().sortingOrder = 16;
+        //    canOrder = false;
+        //}
+        int i = 0;
+        foreach(GameObject go in organicPrefabs)
         {
-         GameObject tempFood = Instantiate(organicPrefabs[i], pantry.position + new Vector3(i * delay,0,0),Quaternion.identity,  converyorBelt);
+            GameObject tempFood = Instantiate(go, pantry.position + new Vector3(i * delay, 0, 0), Quaternion.identity, converyorBelt);
+            i++;
             tempFood.GetComponent<SpriteRenderer>().sortingOrder = 16;
             canOrder = false;
+        }
             StartCoroutine(AnimationCooldown());
             StartCoroutine(Cooldown());
-        }
     }
 
     private IEnumerator AnimationCooldown()

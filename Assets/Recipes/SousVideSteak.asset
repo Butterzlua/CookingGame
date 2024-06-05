@@ -18,7 +18,7 @@ MonoBehaviour:
   - CutSteak
   - Water
   ingredientSprites:
-  - {fileID: 21300000, guid: 4db1f7401e5565f40b70bc9eb53b19d0, type: 3}
+  - {fileID: 21300000, guid: 58003d3ab961fae4eb29a3f89af6cef4, type: 3}
   - {fileID: 21300000, guid: e7d600534e7c742429b194cb4720c646, type: 3}
   - {fileID: 0}
   - {fileID: 0}
