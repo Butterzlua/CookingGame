@@ -76,7 +76,7 @@ public class BowlFunction : MonoBehaviour
                 }
             }
         }
-        else if (collision.GetComponent<RenewableIngredient>())
+        else if (collision.GetComponent<RenewableIngredient>() && collision.gameObject.name != "Salt" && collision.gameObject.name != "Pepper")
         {
             if (collision.gameObject.GetComponent<SpriteRenderer>().sprite)
             {

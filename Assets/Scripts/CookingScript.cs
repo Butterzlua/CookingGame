@@ -6,11 +6,11 @@ public class CookingScript : MonoBehaviour
 {  
     public SpriteRenderer foodImage;
     [SerializeField] private GameObject newParent;
-    [SerializeField] private GameObject Smoke, Deepfry, Steam;
+    [SerializeField] private ParticleSystem Smoke, Deepfry, Steam;
     [SerializeField] private Sprite Default, Oil, Boil;
     public GameObject spritePosition;
     [SerializeField] private AudioSource cookingSound;
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Bowl")
@@ -40,29 +40,35 @@ public class CookingScript : MonoBehaviour
 
     private IEnumerator PlayCookingAnimation(string r, string recipe, float time)
     {
-        GameObject effect = null;
         SpriteRenderer starry = GetComponent<SpriteRenderer>();
         if (FoodManager.FM_instance.CookingType == "Stovetop")
         {
-             effect = Instantiate(Smoke, transform.position, Quaternion.identity);
+            Smoke.Play();
             starry.sprite = Default;
         }
         else if (FoodManager.FM_instance.CookingType == "Deepfry")
         {
-            effect = Instantiate(Deepfry, transform.position, Quaternion.identity);
+            Deepfry.Play();
             starry.sprite = Oil;
         }
         else if (FoodManager.FM_instance.CookingType == "Boil")
         {
-            effect = Instantiate(Steam, transform.position, Quaternion.identity);
+            Steam.Play();
             starry.sprite = Boil;
         }
         cookingSound.Play();
         yield return new WaitForSeconds(time / FoodManager.FM_instance.CookMultiplier);
         starry.sprite = Default;
         cookingSound.Stop();
-        Destroy(effect);
         CookFood(r, recipe);
+        StopAllEffects();
+    }
+
+    private void StopAllEffects()
+    {
+        Steam.Stop();
+        Deepfry.Stop();
+        Smoke.Stop();
     }
 
     private void CookFood(string r, string recipe)
@@ -74,8 +80,6 @@ public class CookingScript : MonoBehaviour
             foodImage.gameObject.tag = "CookedIngredient";
             if (go)
                 go.name = "CookedGrounBeefGO";
-            else
-                print("destroyed???");
         }
         else
         {
@@ -93,7 +97,6 @@ public class CookingScript : MonoBehaviour
             foodImage.gameObject.name = FoodManager.FM_instance.foodGameobjects[r].name;
         }
         foodImage.sprite = FoodManager.FM_instance.cookbook[r];
-        print(foodImage.gameObject.name);
         foodImage.gameObject.transform.parent = newParent.transform;
         foodImage.GetComponent<SpriteRenderer>().sortingOrder = 16;
         //if(go)

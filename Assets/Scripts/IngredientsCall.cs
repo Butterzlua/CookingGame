@@ -22,6 +22,7 @@ public class IngredientsCall : MonoBehaviour
     {
         sound = GetComponent<AudioSource>();
         converyorBelt = FoodManager.FM_instance.conveyorInAction.transform;
+        sound.volume = 0.4f;
     }
 
     private void OnMouseOver()
@@ -36,7 +37,6 @@ public class IngredientsCall : MonoBehaviour
     private void SpawnIngredients()
     {
         converyorBelt = FoodManager.FM_instance.conveyorInAction.transform;
-        sound.volume = 0.65f;
         sound.PlayOneShot(Click);
         //for (int i = 0; i < organicPrefabs.Count; i++)
         //{
@@ -58,7 +58,6 @@ public class IngredientsCall : MonoBehaviour
 
     private IEnumerator AnimationCooldown()
     {
-        sound.volume = 1f;
         sound.clip = (Ticking);
         sound.Play();
         spriteRender.sprite = Cooldown1;

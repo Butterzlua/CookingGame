@@ -30,7 +30,7 @@ public class CutVegetables : MonoBehaviour
         knife.SetBool("Cutting", false);
         if(food.GetComponent<TakeIngedidnet>().IngredientName == "CutChicken")
         {
-            Instantiate(food);
+            Instantiate(food, new Vector3(transform.position.x, transform.position.y, transform.position.z -0.04f), Quaternion.identity);
         }
     }
 

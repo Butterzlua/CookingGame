@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         timer = Random.Range(minimumSpawnTime, maximumSpawntime);
         ToggleBetween2D3D();
         ToggleBetween2D3D();
+        ToggleBetween2D3D();
         IsCooking = true;
     }
 

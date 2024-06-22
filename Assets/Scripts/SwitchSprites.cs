@@ -15,9 +15,17 @@ public class SwitchSprites : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             SwitchSprite();
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if(canClick && number > 1)
+            {
+                number -= 1;
+                SetSprite(number);
+            }
         }
     }
     public void SwitchSprite()
@@ -32,10 +40,12 @@ public class SwitchSprites : MonoBehaviour
     private void SetSprite(int spriteIndex)
     {
         canClick = false;
-        StartCoroutine(Cooldown(0.5f));
+        StartCoroutine(Cooldown(0.25f));
         if (spriteIndex >= 0 && spriteIndex < Dialogues.Length)
         {
-            if (spriteIndex == 3)
+            if (spriteIndex == 2)
+                Highlight.SetActive(false);
+            if (spriteIndex == 3 || spriteIndex == 4)
                 Highlight.SetActive(true);
             if (spriteIndex == 5)
                 Highlight.SetActive(false);
