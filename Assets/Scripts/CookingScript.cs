@@ -57,7 +57,14 @@ public class CookingScript : MonoBehaviour
             starry.sprite = Boil;
         }
         cookingSound.Play();
-        yield return new WaitForSeconds(time / FoodManager.FM_instance.CookMultiplier);
+        if (FoodManager.FM_instance.CookMultiplier > 1)
+        {
+            yield return new WaitForSeconds(time / FoodManager.FM_instance.CookMultiplier);
+        }
+        else
+        {
+            yield return new WaitForSeconds(time);
+        }
         starry.sprite = Default;
         cookingSound.Stop();
         CookFood(r, recipe);
