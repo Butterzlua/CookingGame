@@ -1,3 +1,3 @@
 README
 
-itch page is in html form saved as Cooking Chaos by Louis1945.html in git files
+itch page is https://louis1945.itch.io/cooking-chaos
