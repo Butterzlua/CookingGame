@@ -4,66 +4,50 @@ using UnityEngine;
 
 public class WaitersPlate : MonoBehaviour
 {
-    [SerializeField] private GameManager gamemanager;
-    [SerializeField] private string currentRecipe;
-    private Dictionary<string, GameObject> cookbook = new Dictionary<string, GameObject>();
-    public string[] recipes;
-    public GameObject[] cookedFood;
-    public WaiterScript waiter;
-
-    private void Start()
+    public GameObject current3DFood;
+    public bool CheckRecipe(string recipe)
     {
-        InitializeCookbook();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            if (currentRecipe != null)
-                print(currentRecipe);
-            else
-                print("null");
-        }
-    }
-
-    private void InitializeCookbook()
-    {
-        //if (recipes.Length > 0 && cookedFood.Length > 1 && recipes.Length == cookedFood.Length)
-        {
-            for (int i = 0; i <= recipes.Length - 1; i++)
-            {
-                cookbook.Add(recipes[i], cookedFood[i]);
-            }
-        }
-    }
-
-    public void CheckRecipe(string recipe)
-    {
-        foreach (string r in recipes)
+        foreach (string r in FoodManager.FM_instance.recipes)
         {
             if (r == recipe)
             {
-                GameObject go = Instantiate(cookbook[r], this.transform.position, this.transform.rotation, this.transform);
-                currentRecipe = r;
-                FoodManager.FM_instance.currentFoodSprite = cookbook[r].GetComponentInChildren<SpriteRenderer>().sprite;
+                current3DFood = Instantiate(FoodManager.FM_instance.foodGameobjects[r], this.transform.position, this.transform.rotation, this.transform);
+                FoodManager.FM_instance.currentRecipe = r;
+                FoodManager.FM_instance.currentFoodSprite = FoodManager.FM_instance.foodGameobjects[r].GetComponentInChildren<SpriteRenderer>().sprite;
+                return true;
             }
         }
+        return false;
+
     }
 
-    private void OnMouseOver()
+    public void DestroyFood()
     {
-        if (currentRecipe == "FrenchToast" || currentRecipe == "Burger" || currentRecipe == "Hotdog")
+        //Destroy(current3DFood);
+        current3DFood.SetActive(false);
+        current3DFood = null;
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        List<string> recipeList = new List<string>();
+            foreach(string s in FoodManager.FM_instance.recipes)
         {
+            recipeList.Add(s);
+        }
+        if(recipeList.Contains(FoodManager.FM_instance.currentRecipe))
+        {
+            DestroyFood();
             GameManager.instance.SwitchCharacter();
-            if (waiter.GetComponentInChildren<ThoughtBubble>())
+            if (FoodManager.FM_instance.waiter.GetComponentInChildren<ThoughtBubble>())
             {
-                waiter.GetComponentInChildren<ThoughtBubble>().gameObject.SetActive(true);
-                if(FoodManager.FM_instance.currentFoodSprite)
-                {
-                    waiter.GetComponentInChildren<ThoughtBubble>().SetFoodImage(FoodManager.FM_instance.currentFoodSprite);
-                }
+                FoodManager.FM_instance.waiter.GetComponentInChildren<ThoughtBubble>().gameObject.SetActive(true); 
+                FoodManager.FM_instance.waiter.GetComponentInChildren<ThoughtBubble>().GetComponent<ThoughtBubble>().SetFoodImage(FoodManager.FM_instance.currentFoodSprite);
+
             }
         }
     }
 }
+
+//if (FoodManager.FM_instance.currentRecipe == "FrenchToast" || FoodManager.FM_instance.currentRecipe == "Burger" || FoodManager.FM_instance.currentRecipe == "Hotdog" || FoodManager.FM_instance.currentRecipe == "TomatoPasta"
+            //|| FoodManager.FM_instance.currentRecipe == "Carbonara" || FoodManager.FM_instance.currentRecipe == "Fries")

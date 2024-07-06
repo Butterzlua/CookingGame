@@ -15,6 +15,7 @@ TagManager:
   - Cam2
   - Cuttable
   - CookedIngredient
+  - Draggable
   layers:
   - Default
   - TransparentFX

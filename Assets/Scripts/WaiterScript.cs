@@ -1,7 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WaiterScript : MonoBehaviour
 {
+    [SerializeField] private MoneyScript script;
+    [SerializeField] private AudioSource moeny;
+    [SerializeField] private SpriteRenderer foodInHand;
+    //Create an event that other scripts can "listen" or "subscribe" to.
+    public static event Action<bool> onTableActivated;
     public void Serving()
     {
         GetComponentInChildren<ThoughtBubble>().gameObject.SetActive(true);
@@ -10,15 +16,34 @@ public class WaiterScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<TableScript>().active)
+        if (foodInHand.sprite == null)
+            return;
+
+        if(other.GetComponent<TableScript>().active == true)
         {
-            if(FoodManager.FM_instance.currentFoodSprite == other.GetComponentInChildren<ThoughtBubble>().foodInHand.sprite)
+            if(GetComponentInChildren<ThoughtBubble>().foodInHand.sprite == other.GetComponentInChildren<ThoughtBubble>().foodInHand.sprite)
             {
-                print("Thanks!");
+                MoneyScript.MS_Instance.GiveMoney(FoodManager.FM_instance.foodCosts[FoodManager.FM_instance.currentRecipe],FoodManager.FM_instance.currentRecipe);
+                FoodManager.FM_instance.currentRecipe = "Nothing";
+                other.GetComponent<TableScript>().MoneyDispense(50);
+                moeny.Play();
+                FoodManager.FM_instance.currentFoodSprite = null;
+                FoodManager.FM_instance.GenerateRandomNumber();
+
+                //Fire a "signal" that triggers this event.
+                //onTableActivated?.Invoke(false);
             }
             else
             {
-                print("this aint what i ordered!");
+                if (FoodManager.FM_instance.currentRecipe != "Nothing")
+                {
+                    StarManager.SM_Instance.updateStar(UnityEngine.Random.Range(-0.5f,-0.8f));
+                }
+            }
+
+            if (GetComponentInChildren<ThoughtBubble>())
+            {
+                GetComponentInChildren<ThoughtBubble>().SetFoodImage(null);
             }
         }
     }

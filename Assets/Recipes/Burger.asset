@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c2a1261e7d9b349b541d75e8cc9734, type: 3}
+  m_Name: Burger
+  m_EditorClassIdentifier: 
+  pageNumber: 2
+  recipeName: Burger
+  ingredientNames:
+  - BurgerBun
+  - Cheese
+  - TomatoCut
+  - LettuceCut
+  - BeefPatty
+  ingredientSprites:
+  - {fileID: 21300000, guid: d49603ca3962eb04cbf82631b2dd6a6b, type: 3}
+  - {fileID: 21300000, guid: c83d7872cfe108a4bac5bbe87661cf24, type: 3}
+  - {fileID: 21300000, guid: 2b1899905ae16a4499a7f876a23fed1f, type: 3}
+  - {fileID: 21300000, guid: 37264a02c6098d6479ea7ca0f33ff7af, type: 3}
+  - {fileID: 21300000, guid: 95a5af8e3d84efe4185a6b4b18ebfa94, type: 3}
+  recipeSprite2D: {fileID: 21300000, guid: ba11e1f957031fc4fabe0b6edf337399, type: 3}
+  recipe3D: {fileID: 4246379387971053408, guid: 61a16ac20d0c9dd45ae0761749795426,
+    type: 3}
+  cost: 4.82
+  cookingTime: 5
+  SaltAndPepper: {x: 3, y: 2}

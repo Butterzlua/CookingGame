@@ -26,7 +26,11 @@ public class CamMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(InExtra == false)
+                if(InExtra)
+                {
+                    moveCameraLeft();
+                }
+                else if (InKitchen)
                 {
                     moveCameraRight();
                 }
@@ -36,6 +40,10 @@ public class CamMovement : MonoBehaviour
                 if(InDiner == false)
                 {
                 moveCameraLeft();
+                }
+                if (InDiner)
+                {
+                    moveCameraRight();
                 }
             }
         }
@@ -98,4 +106,6 @@ public class CamMovement : MonoBehaviour
             InExtra = false;
         }
     }
+
+ 
 }

@@ -1,19 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TableScript : MonoBehaviour
 {
     public bool active = true;
-    // Start is called before the first frame update
-    void Start()
+    public ParticleSystem Money_PS;
+    private GameObject FoodThoughtBubble;
+    public void MoneyDispense(int number)
     {
-        
+        Money_PS.Emit(number);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateTable(bool activated)
     {
-        
+        if(activated)
+        {
+            FoodThoughtBubble.SetActive(false);
+        }
     }
 }
