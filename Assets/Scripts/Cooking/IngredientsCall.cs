@@ -47,7 +47,7 @@ public class IngredientsCall : MonoBehaviour
         int i = 0;
         foreach(GameObject go in organicPrefabs)
         {
-            GameObject tempFood = Instantiate(go, pantry.position + new Vector3(i * delay, 0, 0), Quaternion.identity, converyorBelt);
+            GameObject tempFood = Instantiate(go, pantry.position + new Vector3(i * delay, 0, 0), Quaternion.identity);
             i++;
             tempFood.GetComponent<SpriteRenderer>().sortingOrder = 16;
             canOrder = false;

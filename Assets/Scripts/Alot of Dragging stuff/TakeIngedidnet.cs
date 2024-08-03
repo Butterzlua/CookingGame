@@ -11,6 +11,8 @@ public class TakeIngedidnet : MonoBehaviour
     public string IngredientName;
     public Sprite cutSprite;
     public bool Cutting = false;
+    public bool moving = true;
+    public float speed = 5;
     // Start is called before the first frame update
    
     private void Start()
@@ -20,6 +22,10 @@ public class TakeIngedidnet : MonoBehaviour
 
     private void Update()
     {
+        if(moving)
+        {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
         //if(canDrag)
         //{
         //    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -32,6 +38,7 @@ public class TakeIngedidnet : MonoBehaviour
     {
         if (!Cutting && !GameManager.instance.Paused)
         {
+            moving = false;
             transform.parent = newParent.transform;
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
         }
@@ -39,6 +46,7 @@ public class TakeIngedidnet : MonoBehaviour
 
     void OnMouseDrag()
     {
+        moving = false;
         if (!Cutting && !GameManager.instance.Paused)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
