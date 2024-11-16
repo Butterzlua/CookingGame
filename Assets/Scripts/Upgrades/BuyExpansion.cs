@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BuyExpansion : MonoBehaviour
 {
     public bool BoughtUpgrade;
@@ -32,24 +32,29 @@ public class BuyExpansion : MonoBehaviour
     private void Start()
     {
         if (SETTINGS.expansionBool == true)
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
             {
-            barrier.SetActive(false);
-            Table1.SetActive(true);
-            Table2.SetActive(true);
-            spriteRender2.sprite = BoughtSprite;
-            spriteRender.enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
+                barrier.SetActive(false);
+                Table1.SetActive(true);
+                Table2.SetActive(true);
+                spriteRender2.sprite = BoughtSprite;
+                spriteRender.enabled = false;
+                GetComponent<BoxCollider>().enabled = false;
             }
+        }
         int Boughtexpan = PlayerPrefs.GetInt("ExpansionBought", 0);
         if (Boughtexpan == 0)
         {
-           // print("equals 0");
-            barrier.SetActive(true);
-            Table1.SetActive(false);
-            Table2.SetActive(false);
-            spriteRender2.sprite = Normal;
-            spriteRender.enabled = true;
-            GetComponent<BoxCollider>().enabled = true;
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
+            {
+                barrier.SetActive(true);
+                Table1.SetActive(false);
+                Table2.SetActive(false);
+                spriteRender2.sprite = Normal;
+                spriteRender.enabled = true;
+                GetComponent<BoxCollider>().enabled = true;
+            }
         }
     }
 

@@ -18,10 +18,10 @@ public class PauseMain : MonoBehaviour
 
         void PauseGame()
         {
-            if(SceneManager.GetActiveScene().buildIndex != 1)
-              {
-            GameManager.instance.Paused = true;
-               }
+            if(GameManager.instance)
+            {
+                GameManager.instance.Paused = true;
+            }
             // Set Time.timeScale to 0 to pause gameplay
             Time.timeScale = 0;
             // Make PauseMenu panel visible (activate its gameObject)
